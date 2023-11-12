@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Понравившиеся посты</h1>
+            <h1 class="m-0">Корзина</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -28,7 +28,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                      <h3 class="card-title">Все понравившиеся посты</h3>
+                      <h3 class="card-title">Все товары</h3>
                       <div class="card-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
                           <input type="text" name="table_search" class="form-control float-right" placeholder="Найти...">
@@ -53,6 +53,9 @@
                         <tbody>
                           @foreach ($posts as $post)
                           <tr aria-expanded="false">
+                            {{-- для будующей корзинки)
+                                <td>{{ json_decode($posts = auth()->user()->LikedPosts)[0]->title }}</td>
+                            --}}
                             <td>{{ $post->id }}</td>
                             <td>{{ $post->title }}</td>
                             <td class="text-center"><a href="{{ route('post.show', $post->id) }}"><i class="far fa-eye"></i></a></td>

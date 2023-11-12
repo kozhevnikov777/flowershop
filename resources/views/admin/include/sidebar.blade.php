@@ -50,6 +50,14 @@
           </a>
         </li>
         <li class="nav-item">
+            <a href="{{ route('admin.firstcategory.main') }}" class="nav-link">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Доп.категории
+              </p>
+            </a>
+          </li>
+        <li class="nav-item">
             <a href="{{ route('admin.tag.main') }}" class="nav-link">
               <i class="nav-icon fas fa-tags"></i>
               <p>

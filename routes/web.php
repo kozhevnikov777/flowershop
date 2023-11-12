@@ -52,6 +52,13 @@ Route::group(['namespace' => 'App\Http\Controllers\Category', 'prefix' => 'categ
     });
 });
 
+Route::group(['namespace' => 'App\Http\Controllers\FirstCategory', 'prefix' => 'firstcategories'], function () {
+    Route::get('/', IndexController::class)->name('firstcategory.index');
+    Route::group(['namespace' => 'Post', 'prefix' => '{firstcategory}/posts'], function () {
+        Route::get('/', IndexController::class)->name('firstcategory.post.index');
+    });
+});
+
 Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'personal', 'middleware' => ['auth']], function() {
     Route::group(['namespace' => 'Main', 'prefix' => 'main'], function () {
         Route::get('/', IndexController::class)->name('personal.main.main');
@@ -145,6 +152,16 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         Route::get('/{category}/edit', EditController::class)->name('admin.category.edit');
         Route::patch('/{category}', UpdateController::class)->name('admin.category.update');
         Route::delete('/{category}', DeleteController::class)->name('admin.category.delete');
+    });
+
+    Route::group(['namespace' => 'FirstCategory', 'prefix' => 'first_categories'], function () {
+        Route::get('/', IndexController::class)->name('admin.firstcategory.main');
+        Route::get('/create', CreateController::class)->name('admin.firstcategory.create');
+        Route::post('/', StoreController::class)->name('admin.firstcategory.store');
+        Route::get('/{firstcategory}', ShowController::class)->name('admin.firstcategory.show');
+        Route::get('/{firstcategory}/edit', EditController::class)->name('admin.firstcategory.edit');
+        Route::patch('/{firstcategory}', UpdateController::class)->name('admin.firstcategory.update');
+        Route::delete('/{firstcategory}', DeleteController::class)->name('admin.firstcategory.delete');
     });
 
     Route::group(['namespace' => 'Tag', 'prefix' => 'tags'], function () {

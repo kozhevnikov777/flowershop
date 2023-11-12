@@ -3,8 +3,8 @@
 @section('content')
     <main class="blog">
         <div class="container">
-            <h1 class="edica-page-title" data-aos="fade-up">Записная книжка ИТ-специалиста</h1>
-            <section class="featured-posts-section">
+            <h1 class="edica-page-title" style="color: green" data-aos="fade-up">Ассортимент</h1>
+            {{-- <section class="featured-posts-section">
                 <div class="row">
                     @foreach ($posts as $post)
                     <div class="col-md-4 fetured-post blog-post" data-aos="fade-up">
@@ -40,16 +40,18 @@
                         {{ $posts->links() }}
                     </div>
                 </div>
-            </section>
+            </section> --}}
             <div class="row">
                 <div class="col-md-8">
                     <section>
-                        <h4 class="widget-title mt-2 mb-3" data-aos="fade-right">Сейчас читают</h4>
+                        <h4 class="widget-title mt-2 mb-3" data-aos="fade-right">Наши букеты</h4>
                         <div class="row blog-post-row">
                             @foreach ($randomPosts as $post)
                             <div class="col-md-6 blog-post" data-aos="fade-up">
                                 <div class="blog-post-thumbnail-wrapper">
+                                    <a href="{{ route('post.show', $post->id) }}">
                                     <img src="{{ 'storage/'.$post->preview_image }}" alt="blog post">
+                                    </a>
                                 </div>
                                 <p class="blog-post-category">{{ $post->category->title }}</p>
                                 <a href="{{ route('post.show', $post->id) }}" class="blog-post-permalink">
@@ -63,21 +65,20 @@
                 <div class="col-md-4 sidebar" data-aos="fade-left">
                     <div class="widget widget-post-list">
                         <div class="row ml-3">
-                        <h4 class="widget-title">Популярные записи</h4>
+                        <h4 class="widget-title">Подобрать букет</h4>
+                        </div class>
+                        <div class="container">
+                            <ul>Категории
+                                @foreach ($categories as $category)
+                                <li><a style="color: black" href="{{ route('category.post.index', $category->id) }}">{{ $category->title }}</a></li>
+                                @endforeach
+                            </ul>
+                            <ul>Кому
+                                <li>example1</li>
+                                <li>example2</li>
+                                <li>example3</li>
+                            </ul>
                         </div>
-                        <ul class="post-list">
-                            @foreach ($likedPosts as $post)
-                            <li class="post">
-                                <h6 class="blog-post-title ml-3">{{ $post->title }}</h6>
-                                <a href="{{ route('post.show', $post->id) }}" class="post-permalink media">
-                                    <img class="col-md-10" src="{{ 'storage/'.$post->preview_image }}" alt="blog post">
-                                    <div class="media-body">
-                                        <h6 class="{{ $post->title }}"></h6>
-                                    </div>
-                                </a>
-                            </li>
-                            @endforeach
-                        </ul>
                     </div>
                 </div>
             </div>

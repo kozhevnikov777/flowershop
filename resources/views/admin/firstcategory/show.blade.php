@@ -7,9 +7,9 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6 d-flex align-items-center">
-            <h1 class="m-0 mr-2">{{ $post->title }}</h1>
-            <a href="{{ route('admin.post.edit', $post->id) }}" class="text-success"><i class="fas fa-pencil-alt"></i></a>
-            <form action="{{ route('admin.post.delete', $post->id) }}" method="POST">
+            <h1 class="m-0 mr-2">{{ $firstcategory->title }}</h1>
+            <a href="{{ route('admin.firstcategory.edit', $firstcategory->id) }}" class="text-success"><i class="fas fa-pencil-alt"></i></a>
+            <form action="{{ route('admin.firstcategory.delete', $firstcategory->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="border-0 bg-transparent">
@@ -19,8 +19,8 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ route('admin.post.main') }}">Назад</a></li>
-              <li class="breadcrumb-item active">Посты</li>
+              <li class="breadcrumb-item"><a href="{{ route('admin.firstcategory.main') }}">Назад</a></li>
+              <li class="breadcrumb-item active">Категории</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -41,29 +41,11 @@
                     <tbody>
                       <tr aria-expanded="false">
                         <td>ID</td>
-                        <td>{{ $post->id }}</td>
+                        <td>{{ $firstcategory->id }}</td>
                       </tr>
                       <tr aria-expanded="false">
                         <td>Название</td>
-                        <td>{{ $post->title }}</td>
-                      </tr>
-                      <tr aria-expanded="false">
-                        <td>Главное изображение</td>
-                        <td>
-                            <img src="{{ asset('storage/' . $post->preview_image) }}" alt="preview_image" class="w-25">
-                        </td>
-                      </tr>
-                      <tr aria-expanded="false">
-                        <td>Дополнительное изображение</td>
-                        <td>
-                            <img src="{{ asset('storage/' . $post->main_image) }}" alt="preview_image" class="w-25">
-                        </td>
-                      </tr>
-                      <tr aria-expanded="false">
-                        <td>Категория</td>
-                        <td>
-                            {{ $post->category->title }}
-                        </td>
+                        <td>{{ $firstcategory->title }}</td>
                       </tr>
                     </tbody>
                   </table>

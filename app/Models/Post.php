@@ -26,6 +26,11 @@ class Post extends Model
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
+    public function first_category()
+    {
+        return $this->belongsTo(Category::class, 'first_category_id', 'id');
+    }
+
     public function likedUsers()
     {
         return $this->belongsToMany(User::class, 'post_user_likes', 'post_id', 'user_id');

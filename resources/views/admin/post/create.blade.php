@@ -87,6 +87,21 @@
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
+
+                <div class="form-group">
+                    <label>Выберите доп.категорию</label>
+                    <select name="first_category_id" class="form-control w-auto">
+                        @foreach ($firstcategories as $firstcategory)
+                            <option value="{{ $firstcategory->id }}"
+                            {{ $firstcategory->id == old('first_category_id') ? 'selected' : '' }}
+                            >{{ $firstcategory->title }}</option>
+                        @endforeach
+                    </select>
+                    @error('first_category_id')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
                 <div class="form-group w-25">
                     <label>Теги</label>
                     <select class="select2" name="tag_ids[]" multiple="multiple" data-placeholder="Выберите теги" style="width: 100%;">
