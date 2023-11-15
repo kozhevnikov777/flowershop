@@ -87,7 +87,7 @@
                 </div>
                 <div class="form-group w-25">
                     К оплате:
-                    <input type="text" class="form-control w-25" name="order_qty" multiple="multiple" placeholder="К оплате" readonly value=1>
+                    <input type="text" class="form-control w-25" name="order_qty" multiple="multiple" placeholder="К оплате" readonly value={{ $orderQty }}>
                     @error('order_qty')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror

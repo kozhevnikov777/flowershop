@@ -57,7 +57,7 @@
                           @foreach ($posts as $post)
                           <tr aria-expanded="false">
                             {{-- <td>
-                              @foreach (auth()->user()->LikedPosts as $likedPost)
+                              @foreach (auth()->user()->LikedPosts as $likedPost) <form action="{{ route('post.like.store', $post->id) }}" method="POST">
                                 {{ $likedPost->title }} ;
                               @endforeach
                             </td> --}}

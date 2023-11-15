@@ -15,6 +15,15 @@ class CreateController extends Controller
     {
         $posts = Post::all();
         $puls = PostUserLike::all();
-        return view('personal.order.create', compact('posts', 'puls'));
+        $orderQty = 0;
+
+        foreach ($posts as $post) {
+            foreach ($puls as $pul) {
+                if ($pul->post_id === $post->id) {
+                    $orderQty += $pul->count * $post->price;
+                }
+            }
+        }
+        return view('personal.order.create', compact('posts', 'puls', 'orderQty'));
     }
 }

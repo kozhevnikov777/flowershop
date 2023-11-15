@@ -28,13 +28,13 @@
                             </button>
                         </form> --}}
 
-                        пубуп
-                        <form action="{{ route('post.like.store', $post->id) }}" method="POST">
+
+                        <form action="{{ route('post.like.store', $post->id) }}" method="POST">Количество:
                             @csrf
-                        <input type="number" name="count" placeholder="Введите количество товара" value=1>
+                        <input type="number" name="count" placeholder="Введите количество товара" min="1" value=1>
                         <input type="hidden" name="post_id" value="{{ $post->id }}">
                         <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-                        <button type="submit">Добавить</button>
+                        <button type="submit">В корзину</button>
                         </form>
 
                         @endauth
