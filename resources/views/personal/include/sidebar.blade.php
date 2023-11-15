@@ -29,10 +29,18 @@
           <a href="{{ route('personal.liked.main') }}" class="nav-link">
             <i class="nav-icon fas fa-heart"></i>
             <p>
-              Понравившиеся посты
+              Корзина
             </p>
           </a>
         </li>
+        <li class="nav-item">
+            <a href="{{ route('personal.order.main') }}" class="nav-link">
+              <i class="nav-icon fas fa-shopping-cart"></i>
+              <p>
+                Заказы
+              </p>
+            </a>
+          </li>
         <li class="nav-item">
           <a href="{{ route('personal.comment.main') }}" class="nav-link">
             <i class="nav-icon far fa-comment"></i>

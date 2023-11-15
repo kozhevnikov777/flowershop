@@ -72,6 +72,18 @@ Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'perso
         Route::patch('/{post}', UpdateController::class)->name('personal.post.update');
         Route::delete('/{post}', DeleteController::class)->name('personal.post.delete');
     });
+
+
+    Route::group(['namespace' => 'Order', 'prefix' => 'orders'], function () {
+        Route::get('/', IndexController::class)->name('personal.order.main');
+        Route::get('/create', CreateController::class)->name('personal.order.create');
+        Route::post('/', StoreController::class)->name('personal.order.store');
+        Route::get('/{order}', ShowController::class)->name('personal.order.show');
+        Route::get('/{order}/edit', EditController::class)->name('personal.order.edit');
+        Route::patch('/{order}', UpdateController::class)->name('personal.order.update');
+        Route::delete('/{order}', DeleteController::class)->name('personal.order.delete');
+    });
+
     Route::group(['namespace' => 'Liked', 'prefix' => 'liked'], function () {
         Route::get('/', IndexController::class)->name('personal.liked.main');
         Route::delete('/{post}', DeleteController::class)->name('personal.liked.delete');

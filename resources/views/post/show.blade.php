@@ -20,13 +20,23 @@
                 <div class="col-lg-9 mx-auto">
                     <section class="py-3">
                         @auth()
-                        <form action="{{ route('post.like.store', $post->id) }}" method="POST">
+                        {{-- <form action="{{ route('post.like.store', $post->id) }}" method="POST">
                             @csrf
                             <span>{{ $post->liked_users_count }}</span>
                             <button type="submit" class="border-0 bg-transparent">
                                     <i class="fa{{ auth()->user()->likedPosts->contains($post->id) ? 's' : 'r'}} fa-heart"></i>
                             </button>
+                        </form> --}}
+
+                        пубуп
+                        <form action="{{ route('post.like.store', $post->id) }}" method="POST">
+                            @csrf
+                        <input type="number" name="count" placeholder="Введите количество товара" value=1>
+                        <input type="hidden" name="post_id" value="{{ $post->id }}">
+                        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                        <button type="submit">Добавить</button>
                         </form>
+
                         @endauth
                         @guest()
                             <div>
@@ -43,7 +53,7 @@
                             <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
                                 <img src="{{ asset('storage/' . $relatedPost->main_image) }}" alt="related post" class="post-thumbnail">
                                 <p class="post-category">{{ $relatedPost->category->title }}</p>
-                                <a href="{{ route('post.show', $relatedPost->id) }}"><h5 class="post-title">{{ $post->title }}</h5></a>
+                                <a href="{{ route('post.show', $relatedPost->id) }}"><h5 class="post-title">{{ $relatedPost->title }}</h5></a>
                             </div>
                             @endforeach
                         </div>
