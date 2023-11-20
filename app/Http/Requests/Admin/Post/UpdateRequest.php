@@ -24,6 +24,7 @@ class UpdateRequest extends FormRequest
         return [
             'title' => 'required|string',
             'content' => 'required|string',
+            'description' => 'required|string',
             'preview_image' => 'nullable|file',
             'main_image' => 'nullable|file',
             'category_id' => 'required|integer|exists:categories,id',
@@ -40,6 +41,8 @@ class UpdateRequest extends FormRequest
             'title.string' => 'Данные должы соответствовать строчному типу',
             'content.required' => 'Это поле необходимо для запонения',
             'content.string' => 'Данные должы соответствовать строчному типу',
+            'description.required' => 'Это поле необходимо для запонения',
+            'description.string' => 'Данные должы соответствовать строчному типу',
             'preview_image.required' => 'Это поле необходимо для запонения',
             'preview_image.file' => 'Необходимо выбрать файл',
             'main_image.required' => 'Это поле необходимо для запонения',

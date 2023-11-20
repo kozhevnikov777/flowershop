@@ -23,11 +23,14 @@
                 <div class="collapse navbar-collapse" id="edicaMainNav">
                     <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('main.index') }}">Записи</a>
+                            <a class="nav-link" href="{{ route('home') }}">Главная</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('category.index') }}">Категории</a>
+                            <a class="nav-link" href="{{ route('main.index') }}">Товары</a>
                         </li>
+                        {{-- <li class="nav-item">
+                            <a class="nav-link" href="{{ route('category.index') }}">Категории</a>
+                        </li> --}}
                         <li class="nav-item">
                             @auth()
                             <a class="nav-link" href="{{ route('personal.main.main') }}">Личный кабинет</a>

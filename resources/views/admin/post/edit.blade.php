@@ -36,9 +36,16 @@
                     @enderror
                 </div>
                 <div class="form-group w-75">
+                    <label>Добавить описание</label>
                     <textarea id="summernote" name="content">{{ $post->content }}</textarea>
                     @error('content')
                     <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group w-25">
+                    <input type="text" class="form-control" name="description" placeholder="Характеристики" value="{{ $post->description }}">
+                    @error('description')
+                        <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group w-50">
@@ -91,6 +98,18 @@
                         @endforeach
                     </select>
                 </div>
+
+                <div class="form-group">
+                    <label>Выберите доп.категорию</label>
+                    <select name="first_category_id" class="form-control w-auto">
+                        @foreach ($firstcategories as $firstcategory)
+                            <option value="{{ $firstcategory->id }}"
+                            {{ $firstcategory->id == $post->firstcategory_id ? 'selected' : '' }}
+                            >{{ $firstcategory->title }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <div class="form-group w-25">
                     <label>Теги</label>
                     <select class="select2" name="tag_ids[]" multiple="multiple" data-placeholder="Выберите теги" style="width: 100%;">

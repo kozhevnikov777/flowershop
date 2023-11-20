@@ -35,9 +35,16 @@
                     @enderror
                 </div>
                 <div class="form-group w-75">
+                    <label>Добавить описание</label>
                     <textarea id="summernote" name="content">{{ old('content') }}</textarea>
                     @error('content')
                     <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group w-25">
+                    <input type="text" class="form-control" name="description" placeholder="Характеристики" value="{{ old('description') }}">
+                    @error('description')
+                        <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group w-50">

@@ -25,6 +25,7 @@ class StoreRequest extends FormRequest
         return [
             'title' => 'required|string',
             'content' => 'required|string',
+            'description' => 'required|string',
             'preview_image' => 'required|file',
             'main_image' => 'required|file',
             'category_id' => 'required|integer|exists:categories,id',
@@ -41,6 +42,8 @@ class StoreRequest extends FormRequest
             'title.string' => 'Данные должы соответствовать строчному типу',
             'content.required' => 'Это поле необходимо для запонения',
             'content.string' => 'Данные должы соответствовать строчному типу',
+            'description.required' => 'Это поле необходимо для запонения',
+            'description.string' => 'Данные должы соответствовать строчному типу',
             'preview_image.required' => 'Это поле необходимо для запонения',
             'preview_image.file' => 'Необходимо выбрать файл',
             'main_image.required' => 'Это поле необходимо для запонения',

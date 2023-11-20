@@ -1,5 +1,4 @@
-@extends('layout')
-@section('title')Информация про нас@endsection
-@section('main_content')
-    <p> Про нас ... </p>
+@extends('main.main_layout')
+
+@section('content')
 @endsection

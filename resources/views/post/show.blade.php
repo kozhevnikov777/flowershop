@@ -4,7 +4,26 @@
     <main class="blog-post">
         <div class="container">
             <h1 class="edica-page-title" data-aos="fade-up">{{ $post->title }}</h1>
-            <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200"> {{ $date->translatedFormat('F') }} {{ $date->day }}, {{ $date->year }} • {{ $date->format('H:i') }} • {{ $post->comments->count() }} комментарий</p>
+
+            <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200">
+                @foreach ($tags as $tag)
+                    @if ($post->id == $tag->post_id)
+                    {{-- <p>tag_id: {{ $tag->tag_id }}</p> --}}
+                        @foreach ($tagsTitle as $tt)
+                        @if ($tag->tag_id == $tt->id)
+                            <span style="display: inline-block;
+                            padding: 5px 10px;
+                            border-radius: 20px;
+                            background-color: lightgreen;">
+                            {{ $tt->title }}
+                            </span>
+                        @endif
+                        @endforeach
+                    @endif
+                @endforeach
+            </p>
+
+            {{-- <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200"> {{ $date->translatedFormat('F') }} {{ $date->day }}, {{ $date->year }} • {{ $date->format('H:i') }} • {{ $post->comments->count() }} комментарий</p> --}}
             <section class="blog-post-featured-img d-flex justify-content-between" data-aos="fade-up" data-aos-delay="300" class="w-100">
                 <img src="{{ asset('storage/' . $post->preview_image) }}" alt="featured image" class="w-50" style="margin-right: 10px">
                 <img src="{{ asset('storage/' . $post->main_image) }}" alt="featured image" class="w-50">

@@ -15,15 +15,14 @@ use App\Http\Controllers\MainController;
 |
 */
 
-Route::get('/', [MainController::class,'home'] );
+// Route::get('/', [MainController::class,'home'] );
 
-Route::get('/home', [MainController::class,'home']);
+Route::get('/home', [MainController::class,'home'])->name('home');
 
-Route::get('/about', [MainController::class,'about']);
+Route::get('/about', [MainController::class,'about'])->name('about');
 
 Route::get('/records', [MainController::class,'records'])->name('records');
 
-Route::post('/records/check', [MainController::class,'records_check']);
 
 
 
