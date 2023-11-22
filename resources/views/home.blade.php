@@ -340,14 +340,14 @@
         </div>
     </section>
     <footer class="edica-footer" style="background-image: url({{ asset('assets/images/bckgr.jpeg') }}); background-size: cover;" data-aos="fade-up">
-        <div class="container col-md-6" style="background-color: white; color: black;">
+        <div class="container col-md-6" style="background-color: #fff3ee; color: black;">
             <div class="row footer-widget-area pb-0">
                 <div class="col-md-3 mt-3">
                     <a href="{{ route('home') }}" class="footer-brand-wrapper">
                         <img src="{{ asset('assets/images/logokata1.png') }}" alt="logo" width="auto" height="auto">
                     </a>
                     <p style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
-                        Мы предлагаем услуги по организации небольших и крупномасштабных мероприятий, букеты онлайн и в магазине, мастер-классы и свадебные цветы.
+                        Мы предлагаем услуги по организации небольших и крупномасштабных мероприятий, букеты онлайн и в магазине, свадебные цветы.
                     </p>
                     <p class="contact-details" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #2e937a; font-size: larger">hello@kataleya.com</p>
                     <p class="contact-details" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #2e937a; font-size: larger">+7 (904) 270-35-56</p>

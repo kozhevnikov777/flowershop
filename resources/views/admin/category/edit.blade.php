@@ -26,7 +26,7 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-12">
-            <form action="{{ route('admin.category.update', $category->id) }}" method="POST"  class="w-25">
+            <form action="{{ route('admin.category.update', $category->id) }}" method="POST" enctype="multipart/form-data" class="w-25">
                 @csrf
                 @method('PATCH')
                 <div class="form-group">
@@ -34,6 +34,33 @@
                     <input type="text" class="form-control" name="title" placeholder="Название категории" value="{{ $category->title }}">
                     @error('title')
                         <div class="text-danger">Это поле необходимо для заполнения</div>
+                    @enderror
+                </div>
+                <div class="form-group w-100">
+                    <label>Описание</label>
+                    <input type="text" class="form-control" name="description" placeholder="Описание" value="{{ $category->description }}">
+                    @error('description')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group w-100">
+                    <label for="exampleInputFile">Добавить изображение</label>
+                    <div class="w-25 mb-3">
+                        <img src="{{ asset('storage/' . $category->preview_image) }}" alt="preview_image" class="w-25">
+                    </div>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="preview_image">
+                        <label class="custom-file-label">Выберите изображение</label>
+                      </div>
+                      <!--
+                      <div class="input-group-append">
+                        <span class="input-group-text">Загрузить</span>
+                      </div>
+                      -->
+                    </div>
+                    @error('preview_image')
+                        <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <input type="submit" class="btn btn-primary" value="Обновить">

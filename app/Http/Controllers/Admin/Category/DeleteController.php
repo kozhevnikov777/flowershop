@@ -7,7 +7,7 @@ use App\Http\Requests\Admin\Category\UpdateRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
-class DeleteController extends Controller
+class DeleteController extends BaseController
 {
     public function __invoke(Category $category)
     {
