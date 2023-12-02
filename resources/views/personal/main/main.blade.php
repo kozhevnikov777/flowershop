@@ -7,11 +7,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Главная</h1>
+            <h1 class="m-0">Добро пожаловать, {{ auth()->user()->name }}</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/">itnotepad.ru</a></li>
+              <li class="breadcrumb-item"><a href="/">Каталея</a></li>
               <li class="breadcrumb-item active">На сайт</li>
             </ol>
           </div><!-- /.col -->
@@ -29,21 +29,21 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h4>Добавить запись</h4>
+                <h4>Мои заказы</h4>
                 <br>
                 <br>
               </div>
               <div class="icon">
-                <i class="fas fa-pencil-alt"></i>
+                <i class="fas fa-th-list"></i>
               </div>
-              <a href="{{ route('personal.post.create') }}" class="small-box-footer">Подробнее <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('personal.order.main') }}" class="small-box-footer">Подробнее <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h4>Понравившиеся посты</h4>
+                <h4>Корзина</h4>
                 <br>
                 <br>
               </div>
@@ -71,6 +71,12 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
+
+<div class="container">
+    <div class="d-flex justify-content-center" style="margin-top: 25px; margin-bottom: 0px;">
+        <img src="{{ asset('assets/images/persmain.png') }}" alt="logo" width="1100px" height="auto">
+    </div>
+</div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->

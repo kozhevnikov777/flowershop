@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Доп. Категории</h1>
+            <h1 class="m-0">Заказы</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -25,13 +25,15 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-            <div class="col-1 mb-3">
-                <a href="{{ route('admin.firstcategory.create') }}" class="btn btn-primary">Добавить</a>
-            </div>
+
+            {{-- <div class="col-1 mb-3">
+                <a href="{{ route('admin.order.create') }}" class="btn btn-primary">Добавить</a>
+            </div> --}}
+
             <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Все доп. категории</h3>
+                  <h3 class="card-title">Все заказы</h3>
                   <div class="card-tools">
                     <div class="input-group input-group-sm" style="width: 150px;">
                       <input type="text" name="table_search" class="form-control float-right" placeholder="Найти...">
@@ -48,20 +50,26 @@
                   <table class="table table-bordered table-hover">
                     <thead>
                       <tr>
-                        <th>ID</th>
-                        <th>Название</th>
+                        <th>Номер заказа</th>
+                        <th>Дата заказа</th>
+                        <th>Товар</th>
+                        <th>Комментарий</th>
                         <th colspan="3" class="text-center">Действия</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($firstcategories as $firstcategory)
+                      @foreach ($orders as $order)
                       <tr aria-expanded="false">
-                        <td>{{ $firstcategory->id }}</td>
-                        <td>{{ $firstcategory->title }}</td>
-                        <td class="text-center"><a href="{{ route('firstcategory.post.index', $firstcategory->id) }}"><i class="far fa-eye"></i></a></td>
-                        <td class="text-center"><a href="{{ route('admin.firstcategory.edit', $firstcategory->id) }}" class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
+                        <td>{{ $order->id }}</td>
+                        <td>{{ $order->created_at }}</td>
+                        <td>{{ $order->order_name }}</td>
+                        <td>{{ $order->order_comment }}</td>
+                        <td class="text-center"><a href="{{ route('admin.order.show', $order->id) }}"><i class="far fa-eye"></i></a></td>
+
+                        {{-- <td class="text-center"><a href="{{ route('admin.order.edit', $order->id) }}" class="text-success"><i class="fas fa-pencil-alt"></i></a></td> --}}
+
                         <td class="text-center">
-                            <form action="{{ route('admin.firstcategory.delete', $firstcategory->id) }}" method="POST">
+                            <form action="{{ route('admin.order.delete', $order->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="border-0 bg-transparent">
@@ -69,6 +77,7 @@
                                 </button>
                             </form>
                         </td>
+
                       </tr>
                       @endforeach
                     </tbody>

@@ -3,7 +3,10 @@
 @section('content')
     <main class="blog">
         <div class="container">
-            <h1 class="edica-page-title" data-aos="fade-up">Записная книжка ИТ-специалиста</h1>
+            @foreach ($posts as $post)
+            <h1 class="edica-page-title" data-aos="fade-up">{{ $post->category->title }}</h1>
+            @break
+            @endforeach
             <section class="featured-posts-section">
                 <div class="row">
                     @foreach ($posts as $post)

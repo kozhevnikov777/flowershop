@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Personal\Order;
+namespace App\Http\Controllers\Admin\Order;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
@@ -13,6 +13,6 @@ class IndexController extends Controller
     {
         $orders = Order::orderBy('created_at', 'DESC')->get();
         $posts = Post::all();
-        return view('personal.order.main', compact('orders', 'posts'));
+        return view('admin.order.main', compact('orders', 'posts'));
     }
 }

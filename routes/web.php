@@ -17,7 +17,7 @@ use App\Http\Controllers\MainController;
 
 // Route::get('/', [MainController::class,'home'] );
 
-Route::get('/home', [MainController::class,'home'])->name('home');
+Route::get('/', [MainController::class,'home'])->name('home');
 
 Route::get('/about', [MainController::class,'about'])->name('about');
 
@@ -30,8 +30,9 @@ Route::get('/records', [MainController::class,'records'])->name('records');
 
 
 Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
-    Route::get('/', IndexController::class)->name('main.index');
+    Route::get('/main', IndexController::class)->name('main.index');
 });
+
 Route::group(['namespace' => 'App\Http\Controllers\Post', 'prefix' => 'posts'], function () {
     Route::get('/', IndexController::class)->name('post.index');
     Route::get('/{post}', ShowController::class)->name('post.show');
@@ -155,6 +156,16 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         Route::delete('/{post}', DeleteController::class)->name('admin.post.delete');
     });
 
+    Route::group(['namespace' => 'Order', 'prefix' => 'orders'], function () {
+        Route::get('/', IndexController::class)->name('admin.order.main');
+        Route::get('/create', CreateController::class)->name('admin.order.create');
+        Route::post('/', StoreController::class)->name('admin.order.store');
+        Route::get('/{order}', ShowController::class)->name('admin.order.show');
+        Route::get('/{order}/edit', EditController::class)->name('admin.order.edit');
+        Route::patch('/{order}', UpdateController::class)->name('admin.order.update');
+        Route::delete('/{order}', DeleteController::class)->name('admin.order.delete');
+    });
+
     Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {
         Route::get('/', IndexController::class)->name('admin.category.main');
         Route::get('/create', CreateController::class)->name('admin.category.create');
@@ -206,4 +217,4 @@ Route::get('/user/{id}/{name}', function ($id, $name) {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

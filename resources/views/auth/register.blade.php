@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Форма регистраици') }}</div>
+                <div class="card-header">{{ __('Добро пожаловать!') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -63,7 +63,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-info">
                                     {{ __('Зарегистрироваться') }}
                                 </button>
                             </div>
@@ -72,6 +72,11 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div class="container">
+    <div class="d-flex justify-content-center" style="margin-top: 25px; margin-bottom: 0px;">
+        <img src="{{ asset('assets/images/loginpic3.jpg') }}" alt="logo" width="1200px" height="auto">
     </div>
 </div>
 @endsection

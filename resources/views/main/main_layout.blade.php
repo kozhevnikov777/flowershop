@@ -70,7 +70,54 @@
     <br>
     <br>
     @endauth
-    <footer class="edica-footer" data-aos="fade-up">
+    <footer class="edica-footer" style="background-image: url({{ asset('assets/images/bckgr.jpeg') }}); background-size: cover;" data-aos="fade-up">
+        <div class="container col-md-6" style="background-color: #fff3ee; color: black;">
+            <div class="row footer-widget-area pb-0">
+                <div class="col-md-3 mt-3">
+                    <a href="{{ route('home') }}" class="footer-brand-wrapper">
+                        <img src="{{ asset('assets/images/logokata1.png') }}" alt="logo" width="auto" height="auto">
+                    </a>
+                    <p style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                        Мы предлагаем услуги по организации небольших и крупномасштабных мероприятий, букеты онлайн и в магазине, свадебные цветы.
+                    </p>
+                    <p class="contact-details" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #2e937a; font-size: larger">hello@kataleya.com</p>
+                    <p class="contact-details" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #2e937a; font-size: larger">+7 (904) 270-35-56</p>
+                    <nav class="footer-social-links">
+                        <a href="#!"><i class="fab fa-vk" style="font-size: xx-large; color: slateblue"></i></a>
+                        <a href="#!"><i class="fab fa-whatsapp" style="font-size: xx-large; color: springgreen"></i></a>
+                        <a href="#!"><i class="fab fa-viber" style="font-size: xx-large; color: blueviolet"></i></a>
+                        <a href="#!"><i class="fab fa-telegram" style="font-size: xx-large; color: black"></i></a>
+                    </nav>
+                </div>
+                <div class="col-md-3 mt-5 ml-5">
+                    <nav class="footer-nav">
+                        <p class="nav-link mb-0"><strong>Ссылки</strong></p>
+                        <a href="#!" class="nav-link">Главная</a>
+                        <a href="#!" class="nav-link">Ассортимент</a>
+                        <a href="#!" class="nav-link">Категории</a>
+                        <a href="#!" class="nav-link">Личный кабинет</a>
+                    </nav>
+                </div>
+                <div class="col-md-3 mt-5">
+                    <nav class="footer-nav">
+                        <p class="nav-link mb-0"><strong>Информация</strong></p>
+                        <a href="#!" class="nav-link">Контакты</a>
+                        <a href="#!" class="nav-link">Соглашение</a>
+                        <a href="#!" class="nav-link">Конфиденциальность</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="footer-bottom-content d-flex justify-content-end mt-0 pt-0">
+                {{-- <nav class="nav footer-bottom-nav">
+                    <a href="#!">Privacy & Policy</a>
+                    <a href="#!">Terms</a>
+                    <a href="#!">Site Map</a>
+                </nav> --}}
+                <p class="mb-0" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">© Каталея. <?php echo date('Y'); ?>. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    {{-- <footer class="edica-footer" data-aos="fade-up">
         <div class="container">
             <div class="row footer-widget-area">
                 <div class="col-md-3">
@@ -100,7 +147,7 @@
                 <p class="mb-0">© itnotepad</a> 2023. Все права защищены.</p>
             </div>
         </div>
-    </footer>
+    </footer> --}}
     <script src="{{ asset('assets/vendors/popper.js/popper.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/aos/aos.js') }}"></script>

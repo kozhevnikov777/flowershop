@@ -1,4 +1,4 @@
-@extends('personal.main.main_layout')
+@extends('admin.main.main_layout')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -11,7 +11,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ route('personal.order.main') }}">Назад</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('admin.order.main') }}">Назад</a></li>
               <li class="breadcrumb-item active">Корзина</li>
             </ol>
           </div><!-- /.col -->
@@ -26,7 +26,7 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-12">
-            <form action="{{ route('personal.order.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.order.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group w-25" hidden>
                     <label>Номер</label>
@@ -36,7 +36,7 @@
                     @enderror
                 </div>
 
-                {{-- <div class="form-group w-25" hidden>
+                <div class="form-group w-25" hidden>
                     <textarea class="form-control" name="order_name" readonly style="max-height: 50em;">
                     @foreach(auth()->user()->LikedPosts as $likedPost) {{$likedPost->title}}; &nbsp;
                     @endforeach
@@ -44,22 +44,8 @@
                     @error('order_name')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
-                </div> --}}
-
-                <div class="form-group w-25" hidden>
-                    <textarea class="form-control" name="order_name" readonly style="max-height: 50em;">
-                        @foreach(auth()->user()->LikedPosts as $likedPost)
-                            @foreach ($puls as $pul)
-                                @if ($pul->post_id === $likedPost->id)
-                                    @for($i = 1; $i <= $pul->count; $i++){{$likedPost->title}};@endfor
-                                @endif
-                            @endforeach
-                        @endforeach
-                    </textarea>
-                    @error('order_name')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
                 </div>
+                    {{-- order_qty --}}
 
                 <div class="form-group w-50">
                 @foreach(auth()->user()->LikedPosts as $likedPost)

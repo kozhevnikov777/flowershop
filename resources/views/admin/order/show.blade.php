@@ -1,4 +1,4 @@
-@extends('personal.main.main_layout')
+@extends('admin.main.main_layout')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -7,21 +7,19 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6 d-flex align-items-center">
-            <h1 class="m-0 mr-2">Заказ номер: {{ $order->id }}</h1>
-
-            {{-- <a href="{{ route('personal.order.edit', $order->id) }}" class="text-success"><i class="fas fa-pencil-alt"></i></a>
-            <form action="{{ route('personal.order.delete', $order->id) }}" method="POST">
+            <h1 class="m-0 mr-2">{{ $order->order_name }}</h1>
+            <a href="{{ route('admin.order.edit', $order->id) }}" class="text-success"><i class="fas fa-pencil-alt"></i></a>
+            <form action="{{ route('admin.order.delete', $order->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="border-0 bg-transparent">
                     <i class="fas fa-trash text-danger" role="button"></i>
                 </button>
-            </form> --}}
-
+            </form>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ route('personal.order.main') }}">Назад</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('admin.order.main') }}">Назад</a></li>
               <li class="breadcrumb-item active">Заказы</li>
             </ol>
           </div><!-- /.col -->
@@ -42,8 +40,18 @@
                   <table class="table table-bordered table-hover">
                     <tbody>
                       <tr aria-expanded="false">
-                        <td>Номер заказа</td>
+                        <td>Номер</td>
                         <td>{{ $order->id }}</td>
+                      </tr>
+                      <tr aria-expanded="false">
+                        <td>Заказчик</td>
+                        <td>
+                        @foreach ($users as $user)
+                        @if ($order->user_id == $user->id)
+                        <a href="{{ route('admin.user.show', $user->id) }}" class="blog-post-permalink">{{ $order->user->name }}
+                        @endif
+                        @endforeach
+                        </td>
                       </tr>
                       <tr aria-expanded="false">
                         <td>Дата заказа</td>
@@ -54,16 +62,16 @@
                         <td>{{ $order->order_name }}</td>
                       </tr>
                       <tr aria-expanded="false">
-                        <td>Адрес доставки</td>
+                        <td>Комментарий</td>
+                        <td>{{ $order->order_comment }}</td>
+                      </tr>
+                      <tr aria-expanded="false">
+                        <td>Адрес</td>
                         <td>{{ $order->order_address }}</td>
                       </tr>
                       <tr aria-expanded="false">
                         <td>Номер телефона</td>
                         <td>{{ $order->order_phone_number }}</td>
-                      </tr>
-                      <tr aria-expanded="false">
-                        <td>Комментарий</td>
-                        <td>{{ $order->order_comment }}</td>
                       </tr>
                       <tr aria-expanded="false">
                         <td>Стоимость</td>
@@ -74,11 +82,6 @@
                 </div>
                 <!-- /.card-body -->
               </div>
-
-            <div>
-                <p style="margin-right: 10px;">Есть вопросы по заказу? <a href="{{ route('records') }}" style="color: #2e937a"> свяжитесь с нами удобным для вас способом</p>
-            </div>
-
             </div>
             <!-- ./col -->
         </div>

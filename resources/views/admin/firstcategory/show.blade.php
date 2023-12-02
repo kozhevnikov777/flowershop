@@ -20,7 +20,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('admin.firstcategory.main') }}">Назад</a></li>
-              <li class="breadcrumb-item active">Категории</li>
+              <li class="breadcrumb-item active">Доп.Категории</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

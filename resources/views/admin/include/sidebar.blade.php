@@ -26,6 +26,14 @@
           </a>
         </li>
         <li class="nav-item">
+            <a href="{{ route('admin.order.main') }}" class="nav-link">
+              <i class="nav-icon fas fa-shopping-cart"></i>
+              <p>
+                Заказы
+              </p>
+            </a>
+          </li>
+        <li class="nav-item">
           <a href="{{ route('admin.user.main') }}" class="nav-link">
             <i class="nav-icon fas fa-users"></i>
             <p>
@@ -37,7 +45,7 @@
           <a href="{{ route('admin.post.main') }}" class="nav-link">
             <i class="nav-icon far fa-clipboard"></i>
             <p>
-              Посты
+              Товары
             </p>
           </a>
         </li>

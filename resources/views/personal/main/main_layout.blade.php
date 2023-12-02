@@ -53,6 +53,18 @@
                 </form>
             </li>
         </ul>
+
+        @if(Auth::user()->role == 1)
+        <ul class="navbar-nav d-flex justify-content-center" style="">
+          <li class="nav-item">
+              <form action="{{ route('admin.main.main') }}" method="get">
+                  @csrf
+                  <input class="btn btn-outline-primary" type="submit" value="Админка">
+              </form>
+          </li>
+        </ul>
+        @endif
+
   </nav>
   <!-- /.navbar -->
 
@@ -61,7 +73,7 @@
 
 
   <footer class="main-footer">
-    <strong>itnotepad</strong>
+    <strong>Каталея</strong>
   </footer>
 
   <!-- Control Sidebar -->
@@ -106,10 +118,13 @@
 <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('dist/js/adminlte.js') }}"></script>
+
 <!-- AdminLTE for demo purposes -->
-<script src="{{ asset('dist/js/demo.js') }}"></script>
+{{-- <script src="{{ asset('dist/js/demo.js') }}"></script> --}}
+
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+{{-- <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script> --}}
+
 <script>
     $(document).ready(function() {
         $('#summernote').summernote({
